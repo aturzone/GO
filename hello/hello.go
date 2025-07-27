@@ -11,13 +11,16 @@ func main() {
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0)
 
-	message, err := greetings.Hello("Atur")
+	//name input
+	fmt.Print("Please enter your name: ")
+	var name string
+	_, err := fmt.Scanln(&name)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("Error reading input: ", err)
 	}
-	fmt.Println(message)
 
-	message, err = greetings.Hello("")
+	//greeting with name input
+	message, err := greetings.Hello(name)
 	if err != nil {
 		log.Fatal(err)
 	}
